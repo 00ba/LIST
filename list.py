@@ -22,7 +22,10 @@ class Cell:
         self.cell['cdr'] = n
 
 def get_list(newcell):
-    return newcell.cell.values()
+    if atom(newcell.get_car):
+        return newcell.get_car
+    else
+        get_list(newcell.get_cdr)
 
 def cons(a, b):
     newcell = Cell()
@@ -57,4 +60,3 @@ if __name__ == '__main__':
     finally:
         print get_list(one)
         print root.cell.values()
-        
