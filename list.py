@@ -11,18 +11,22 @@ class Cell:
 
     def get_car(self):
         return self.cell['car']
+        self.cell['car'] = None
 
     def set_car(self, n):
         self.cell['car'] = n
 
     def get_cdr(self):
         return self.cell['cdr']
+        self.cell['cdr'] = None
 
     def set_cdr(self, n):
         self.cell['cdr'] = n
 
 def get_list(newcell):
-    if atom(newcell.get_car):
+    if None == get_cdr(newcell):
+        return {}
+    elif atom(newcell.get_car):
         return newcell.get_car
     else
         get_list(newcell.get_cdr)
