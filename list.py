@@ -18,18 +18,22 @@ class Cell:
 
     def get_cdr(self):
         return self.cell['cdr']
-        self.cell['cdr'] = None
+
 
     def set_cdr(self, n):
         self.cell['cdr'] = n
 
 def get_list(newcell):
-    if None == get_cdr(newcell):
+    if None == newcell.cell['cdr']:
         return {}
     elif atom(newcell.get_car):
-        return newcell.get_car
-    else
-        get_list(newcell.get_cdr)
+        return newcell.cell['car']
+    else:
+        get_list(newcell.cell['cdr'])
+
+def set_list(newcell):
+    pass
+
 
 def cons(a, b):
     newcell = Cell()
