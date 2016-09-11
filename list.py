@@ -7,29 +7,27 @@ Created on Sep 8, 2016
 class Cell:
 
     def __init__(self):
-        self.cell = {'car':None, 'cdr':None}
+        self.cell = [None, None]
 
     def get_car(self):
-        return self.cell['car']
-        self.cell['car'] = None
+        return self.cell.pop()
 
     def set_car(self, n):
-        self.cell['car'] = n
+        self.cell.append(0) = n
 
     def get_cdr(self):
-        return self.cell['cdr']
-
+        return self.cell.pop(0)
 
     def set_cdr(self, n):
-        self.cell['cdr'] = n
+        self.cell.append = n
 
 def get_list(newcell):
-    if None == newcell.cell['cdr']:
-        return {}
+    if None == newcell.get_car:
+        return []
     elif atom(newcell.get_car):
-        return newcell.cell['car']
+        return newcell.get_car
     else:
-        get_list(newcell.cell['cdr'])
+        get_list(newcell.get_cdr)
 
 def set_list(newcell):
     pass
@@ -37,8 +35,8 @@ def set_list(newcell):
 
 def cons(a, b):
     newcell = Cell()
-    newcell.cell['car'] = a
-    newcell.cell['cdr'] = b
+    newcell.set_car = a
+    newcell.set_cdr = b
     return newcell
 
 def atom(a):
@@ -67,4 +65,3 @@ if __name__ == '__main__':
         pass
     finally:
         print get_list(one)
-        print root.cell.values()
