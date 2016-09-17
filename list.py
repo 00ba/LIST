@@ -7,7 +7,7 @@ Created on Sep 8, 2016
 class Cell:
 
     def __init__(self):
-        self.cell = []
+        self.cell = [None, None]
 
     def get_car(self):
         result = self.cell.pop(0)
@@ -23,24 +23,28 @@ class Cell:
     def set_cdr(self, n):
         self.cell.append(n)
         
-class List:
+class List(Cell):
         
-    def get_list(self, newcell):
-        if None is newcell.get_car:
+    def get_list(self, newlist):
+        if None is mylist.get_car:
             return []
-        elif atom(newcell.get_car):
-            return newcell.get_car
+        elif atom(newlist.get_car):
+            return newlist.get_car
         else:
-            self.get_list(newcell.get_cdr)
+            self.get_list(newlist.get_cdr)
     
-    def set_list(self, newcell):
-        pass
+    def set_list(self, *args):
+        if None is args.get_car:
+            return []
+        elif atom(args.get_car):
+            return self.set_car(args)
+        else:
+            self.get_list(args.get_cdr)        
 
-
-def cons(a, b):
+def cons(self, a, b):
     newcell = Cell()
-    newcell.set_car = a
-    newcell.set_cdr = b
+    newcell.set_car(a)
+    newcell.set_cdr(b)
     return newcell
 
 def atom(a):
@@ -58,16 +62,12 @@ def eq(a, b):
         return False
 
 if __name__ == '__main__':
-    try:
-        root = Cell()
-        root.set_car(1)
-        root.set_cdr(2)
-        print root.get_car()
-        print root.get_cdr()
-    except:
-        pass
-    else:
-        pass
-    finally:
-        pass 
+
+        mylist = List()
+        mylist.set_list([1, [2, [3, None]]])
+        print mylist.cell
+        print mylist.cell.pop()
+        print mylist.cell.pop(0)
+        print mylist.cell
+
 
