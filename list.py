@@ -1,36 +1,40 @@
 '''
 Created on Sep 8, 2016
 
-@author: oobasatoshi
+
 '''
 
 class Cell:
 
     def __init__(self):
-        self.cell = [None, None]
+        self.cell = []
 
     def get_car(self):
-        return self.cell.pop()
+        result = self.cell.pop(0)
+        return result
 
     def set_car(self, n):
-        self.cell.append(0) = n
+        self.cell.insert(0, n)
 
     def get_cdr(self):
-        return self.cell.pop(0)
+        result = self.cell.pop()
+        return result
 
     def set_cdr(self, n):
-        self.cell.append = n
-
-def get_list(newcell):
-    if None == newcell.get_car:
-        return []
-    elif atom(newcell.get_car):
-        return newcell.get_car
-    else:
-        get_list(newcell.get_cdr)
-
-def set_list(newcell):
-    pass
+        self.cell.append(n)
+        
+class List:
+        
+    def get_list(self, newcell):
+        if None is newcell.get_car:
+            return []
+        elif atom(newcell.get_car):
+            return newcell.get_car
+        else:
+            self.get_list(newcell.get_cdr)
+    
+    def set_list(self, newcell):
+        pass
 
 
 def cons(a, b):
@@ -56,12 +60,14 @@ def eq(a, b):
 if __name__ == '__main__':
     try:
         root = Cell()
-        one = Cell()
-        one.set_car(1)
-        root = root.cons(2, one)
+        root.set_car(1)
+        root.set_cdr(2)
+        print root.get_car()
+        print root.get_cdr()
     except:
         pass
     else:
         pass
     finally:
-        print get_list(one)
+        pass 
+

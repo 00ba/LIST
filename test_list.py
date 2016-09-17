@@ -1,7 +1,6 @@
 '''
 Created on Sep 8, 2016
 
-@author: oobasatoshi
 '''
 from list import *
 import unittest
@@ -12,7 +11,10 @@ class Test(unittest.TestCase):
 
     def test_list(self):
         root = Cell()
-        self.assertEquals(cons(1, 2),{1, 2})
+        root.set_car(1)
+        root.set_cdr(2)
+        self.assertEquals(root.get_car,1)
+        self.assertEquals(root.get_cdr,2)
 
 
 if __name__ == "__main__":
