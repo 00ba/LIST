@@ -37,9 +37,18 @@ class List(Cell):
             self.get_list(n)
 
     def set_list(self, *args):
+        result = None
         for arg in args:
-            result = cons(arg)
+            result = cons(arg, result)
+        else:
             return result
+
+def set(*args):
+    result = None
+    for arg in args:
+        result = cons(arg, result)
+    else:
+        return result
 
 def show_list(n):
     if None is n:
