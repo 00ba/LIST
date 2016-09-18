@@ -23,7 +23,8 @@ class Test(unittest.TestCase):
         self.assertFalse(eq(1, 2))
 
 
-        self.assertEquals(show_list([1, [2, [3, None]]]),[1, [2, [3, None]]])
+
+
 
 
 if __name__ == "__main__":

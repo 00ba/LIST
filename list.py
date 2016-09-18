@@ -30,11 +30,11 @@ class List(Cell):
 
     def get_list(self):
         if None is self:
-            return []
-        elif atom(self.get_car):
-            return self.get_car
-        else:
-            self.get_list(self.get_cdr)
+            print []
+        elif atom(self.root.cell[0]):
+            print self.get_car
+            n = self.get_cdr
+            self.get_list(n)
 
     def set_list(self, *args):
         for arg in args:
@@ -45,7 +45,7 @@ def show_list(n):
     if None is n:
         print []
     elif atom(n[0]):
-        print n[0]
+        print n.pop(0)
         n = n.pop()
         show_list(n)
 
