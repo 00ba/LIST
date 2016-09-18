@@ -29,7 +29,7 @@ class List(Cell):
         self.root = Cell()
 
     def get_list(self):
-        if None is self.get_car:
+        if None is self:
             return []
         elif atom(self.get_car):
             return self.get_car
@@ -41,6 +41,13 @@ class List(Cell):
             result = cons(arg)
             return result
 
+def show_list(n):
+    if None is n:
+        print []
+    elif atom(n[0]):
+        print n[0]
+        n = n.pop()
+        show_list(n)
 
 def cons(a, b = None):
     newcell = Cell()

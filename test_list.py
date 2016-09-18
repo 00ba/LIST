@@ -22,9 +22,8 @@ class Test(unittest.TestCase):
         self.assertTrue(eq(1, 1))
         self.assertFalse(eq(1, 2))
 
-        mylist = List()
-        self.assertEquals(mylist.set_list(1, 2, 3),[1, [2, [3, None]]])
-        self.assertEquals(mylist.get_list,[1, [2, [3, None]]])
+
+        self.assertEquals(show_list([1, [2, [3, None]]]),[1, [2, [3, None]]])
 
 
 if __name__ == "__main__":
