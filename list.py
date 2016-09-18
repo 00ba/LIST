@@ -63,8 +63,3 @@ def eq(a, b):
         return True
     else:
         return False
-
-if __name__ == '__main__':
-
-        mylist = List()
-        print mylist.root.cell
