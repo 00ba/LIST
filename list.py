@@ -6,8 +6,8 @@ Created on Sep 8, 2016
 
 class Cell:
 
-    def __init__(self, a, b):
-        self.cell = [a, b]
+    def __init__(self):
+        self.cell = []
 
     def get_car(self):
         result = self.cell.pop(0)
@@ -26,7 +26,7 @@ class Cell:
 class List(Cell):
 
     def __init__(self):
-        self.root = Cell(None, None)
+        self.root = Cell()
 
     def get_list(self):
         if None is self.get_car:
@@ -37,15 +37,13 @@ class List(Cell):
             self.get_list(self.get_cdr)
 
     def set_list(self, *args):
-        if None is args.get_car:
-            return []
-        elif atom(args.get_car):
-            return self.set_car(args)
-        else:
-            self.get_list(args.get_cdr)
+        for arg in args:
+            result = cons(arg)
+            return result
 
-def cons(a, b):
-    newcell = Cell(None, None)
+
+def cons(a, b = None):
+    newcell = Cell()
     newcell.set_car(a)
     newcell.set_cdr(b)
     return newcell

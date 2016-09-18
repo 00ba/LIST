@@ -2,6 +2,8 @@ from list import *
 
 if __name__ == '__main__':
 
+        foo = cons(1, 2)
+        print foo.cell
         mylist = List()
-        mylist.root.set_car(1)
-        print mylist.root.cell.pop()
+        mylist = mylist.set_list(1, 2, 3)
+        print mylist.cell
