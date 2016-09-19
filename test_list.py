@@ -10,11 +10,11 @@ class Test(unittest.TestCase):
 
 
     def test_list(self):
-        root = Cell()
-        root = root.cons(1, [2, [3, None]])
+        box = List()
+        box = box.cons(1, 2)
 
-        self.assertEquals(root.get_car(),1)
-        self.assertEquals(root.get_cdr(),[2, [3, None]])
+        self.assertEquals(box.root.get_car(),1)
+        self.assertEquals(box.root.get_cdr(),2)
 
         self.assertTrue(atom(1))
         self.assertTrue(atom('two'))
@@ -25,7 +25,8 @@ class Test(unittest.TestCase):
 
         mylist = List()
         mylist.set_list(1, 2, 3)
-        self.assertEquals(mylist.get_list, [3, [2, [1, None]]])
+        mylist.get_list()
+        self.assertEquals(mylist.get_list(), [3, [2, [1, None]]])
 
 
 

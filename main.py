@@ -3,6 +3,6 @@ from list import *
 if __name__ == '__main__':
 
 
-        mybox = Box()
-        mybox.myset(2)
-        print mybox.show()
+        mylist = List()
+        mylist.set_list(1, 2, 3)
+        mylist.get_list()
