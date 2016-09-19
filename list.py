@@ -23,6 +23,11 @@ class Cell:
     def set_cdr(self, n):
         self.cell.append(n)
 
+    def cons(self, a, b = None):
+        self.set_car(a)
+        self.set_cdr(b)
+        return self.cell
+
 class List(Cell):
 
     def __init__(self):
@@ -30,18 +35,17 @@ class List(Cell):
 
     def get_list(self):
         if None is self:
-            print []
+            print result
         elif atom(self.root.cell[0]):
             print self.get_car
             n = self.get_cdr
             self.get_list(n)
 
     def set_list(self, *args):
-        result = None
         for arg in args:
-            result = cons(arg, result)
-        else:
-            return result
+            self.cons(arg, self.root.cell)
+
+
 
 def set(*args):
     result = None
@@ -58,11 +62,7 @@ def show_list(n):
         n = n.pop()
         show_list(n)
 
-def cons(a, b = None):
-    newcell = Cell()
-    newcell.set_car(a)
-    newcell.set_cdr(b)
-    return newcell
+
 
 def atom(a):
     if isinstance(a, int):

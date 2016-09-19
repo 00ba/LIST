@@ -22,6 +22,10 @@ class Test(unittest.TestCase):
         self.assertTrue(eq(1, 1))
         self.assertFalse(eq(1, 2))
 
+        mylist = List()
+        mylist.set_list(1, 2, 3)
+        self.assertEquals(mylist.get_list, [3, [2, [1, None]]])
+
 
 
 
