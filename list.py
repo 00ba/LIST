@@ -1,11 +1,5 @@
 # coding: utf-8
 
-'''
-Created on Sep 8, 2016
-
-
-'''
-
 class List(Cell):
 
     def __init__(self):

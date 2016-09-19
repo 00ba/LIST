@@ -25,7 +25,7 @@ def atom(a):
     elif isinstance(a, str):
         return True
     else:
-        False
+        return False
 
 def eq(a, b):
     if a == b:
