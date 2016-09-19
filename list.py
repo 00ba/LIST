@@ -34,8 +34,8 @@ class List(Cell):
         self.root = Cell()
 
     def get_list(self):
-        if None is self:
-            print result
+        if None is self.root:
+            print None
         elif atom(self.root.cell[0]):
             print self.get_car
             n = self.get_cdr
@@ -46,16 +46,23 @@ class List(Cell):
             self.root.cons(arg, self.root)
         return self.root
 
+class Box():
+
+    def show(self):
+        print self.box
+
+    def myset(self, n):
+        self.box = n
+
 def get(n):
     if None is n:
-        pass
+        None
     elif atom(n[0]):
         print n[0]
         n = n.pop()
         get(n)
 
 def set(*args):
-    result = None
     for arg in args:
         result = cons(arg, result)
     else:

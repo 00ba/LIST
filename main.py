@@ -3,4 +3,6 @@ from list import *
 if __name__ == '__main__':
 
 
-        get([3, [2, [1, None]]])
+        mybox = Box()
+        mybox.myset(2)
+        print mybox.show()
