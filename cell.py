@@ -2,8 +2,8 @@
 
 class Cell:
 
-    def __init__(self, a = None, b = None):
-        self.cell = [a, b]
+    def __init__(self):
+        self.cell = []
 
     def car(self):
         result = self.cell.pop(0)
@@ -13,8 +13,10 @@ class Cell:
         result = self.cell.pop()
         return result
 
-def cons(a, b):
-    newcell = Cell(a, b)
+def cons(a, b = None):
+    newcell = Cell()
+    newcell.cell.insert(0, a)
+    newcell.cell.append(b)
     return newcell
 
 def atom(a):
