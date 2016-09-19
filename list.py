@@ -9,19 +9,13 @@ class Cell:
     def __init__(self):
         self.cell = []
 
-    def get_car(self):
+    def car(self):
         result = self.cell.pop(0)
         return result
 
-    def set_car(self, n):
-        self.cell.insert(0, n)
-
-    def get_cdr(self):
+    def cdr(self):
         result = self.cell.pop()
         return result
-
-    def set_cdr(self, n):
-        self.cell.append(n)
 
 
 class List(Cell):
@@ -42,8 +36,8 @@ class List(Cell):
 
 def cons(a, b = None):
     newcell = Cell()
-    newcell.set_car(a)
-    newcell.set_cdr(b)
+    newcell.cell.insert(0, a)
+    newcell.cell.append(b)
     return newcell
 
 def atom(a):
