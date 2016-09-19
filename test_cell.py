@@ -24,6 +24,8 @@ class Test(unittest.TestCase):
         self.assertTrue(eq(1, 1))
         self.assertFalse(eq(1, 2))
 
+        self.assertEquals(cons(3, [2, [1, None]]).cell, [3, [2, [1, None]]])
+
 
 
 

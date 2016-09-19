@@ -12,8 +12,8 @@ class Test(unittest.TestCase):
 
         mylist = List()
         mylist.set_list(1, 2, 3)
-        mylist.get_list()
         self.assertEquals(mylist.get_list(), [3, [2, [1, None]]])
+
 
 
 
