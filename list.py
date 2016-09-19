@@ -1,44 +1,49 @@
 '''
 Created on Sep 8, 2016
 
-@author: oobasatoshi
+
 '''
 
 class Cell:
 
     def __init__(self):
-        self.cell = {'car':None, 'cdr':None}
+        self.cell = []
 
     def get_car(self):
-        return self.cell['car']
-        self.cell['car'] = None
+        result = self.cell.pop(0)
+        return result
 
     def set_car(self, n):
-        self.cell['car'] = n
+        self.cell.insert(0, n)
 
     def get_cdr(self):
-        return self.cell['cdr']
-
+        result = self.cell.pop()
+        return result
 
     def set_cdr(self, n):
-        self.cell['cdr'] = n
-
-def get_list(newcell):
-    if None == newcell.cell['cdr']:
-        return {}
-    elif atom(newcell.get_car):
-        return newcell.cell['car']
-    else:
-        get_list(newcell.cell['cdr'])
-
-def set_list(newcell):
-    pass
+        self.cell.append(n)
 
 
-def cons(a, b):
+class List(Cell):
+
+    def __init__(self):
+        self.root = Cell()
+
+    def get_list(self):
+        print self.root.cell
+
+    def set_list(self, *args):
+        for arg in args:
+            if self.root.cell == []:
+                self.root = cons(arg)
+            else:
+                self.root = cons(arg, self.root.cell)
+        return self.root
+
+def cons(a, b = None):
     newcell = Cell()
-    newcell.cell['car'] = a
-    newcell.cell['cdr'] = b
+    newcell.set_car(a)
+    newcell.set_cdr(b)
     return newcell
 
 def atom(a):
@@ -54,17 +59,3 @@ def eq(a, b):
         return True
     else:
         return False
-
-if __name__ == '__main__':
-    try:
-        root = Cell()
-        one = Cell()
-        one.set_car(1)
-        root = root.cons(2, one)
-    except:
-        pass
-    else:
-        pass
-    finally:
-        print get_list(one)
-        print root.cell.values()
