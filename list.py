@@ -26,7 +26,7 @@ class Cell:
     def cons(self, a, b = None):
         self.set_car(a)
         self.set_cdr(b)
-        return self.cell
+        return self
 
 class List(Cell):
 
@@ -43,9 +43,16 @@ class List(Cell):
 
     def set_list(self, *args):
         for arg in args:
-            self.cons(arg, self.root.cell)
+            self.root.cons(arg, self.root)
+        return self.root
 
-
+def get(n):
+    if None is n:
+        pass
+    elif atom(n[0]):
+        print n[0]
+        n = n.pop()
+        get(n)
 
 def set(*args):
     result = None
