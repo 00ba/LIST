@@ -3,6 +3,15 @@
 from cell import *
 from list import *
 
-mylist = List()
-mylist.set_list(1, 2, 3, 4, 5, 6)
-mylist.get_list()
+root = None
+
+def foo(argv, n):
+    if [] == argv:
+        return n
+    else:
+        n = cons(argv.pop(0), n)
+        foo(argv, n)
+
+
+n = foo([1, 2, 3], root)
+n.cell

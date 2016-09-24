@@ -6,12 +6,12 @@ class Cell:
         self.cell = []
 
     def car(self):
-        result = self.cell.pop(0)
-        return result
+        value = self.cell.pop(0)
+        return value
 
     def cdr(self):
-        result = self.cell.pop()
-        return result
+        value = self.cell.pop()
+        return value
 
 def cons(a, b = None):
     newcell = Cell()
